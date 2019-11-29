@@ -18,9 +18,10 @@ resource "random_id" "user-password" {
 # deploy a Cloud SQL instance with MySQL
 
 resource "google_sql_database_instance" "wp-mysql" {
-  name             = "wp-mysql-instance"
-  database_version = "MYSQL_5_7"
-  region           = "${var.region}"
+  name             	= "wp-mysql-instance"
+  database_version 	= "MYSQL_5_7"
+  region           	= "${var.region}"
+  project			= "${data.google_client_config.current.project}"
   settings {
     tier 						= "${var.tier}"
 	disk_size 					= "${var.disk_size}"
