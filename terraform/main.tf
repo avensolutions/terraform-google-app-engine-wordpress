@@ -3,7 +3,7 @@
 # 
 
 provider "google" {
-  region = "${var.region}"
+  region 	= "${var.region}"
 }
 
 data "google_client_config" "current" {}
@@ -36,6 +36,7 @@ resource "google_sql_database_instance" "wp-mysql" {
 	}
 	ip_configuration  {
 		require_ssl 			= true
+		ipv4_enabled 			= true
 	}
 	location_preference  {
 		follow_gae_application 	= true
